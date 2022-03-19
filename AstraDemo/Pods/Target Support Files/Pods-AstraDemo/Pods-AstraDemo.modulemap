@@ -1,0 +1,6 @@
+framework module Pods_AstraDemo {
+  umbrella header "Pods-AstraDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
