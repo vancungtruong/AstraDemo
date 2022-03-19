@@ -13,16 +13,14 @@ extension CTPurchaseProduct {
     
     func trackFirebase(additionParams: [String: Any]?) {
 
-        if let product = CTPurchaseKit.shared.productsInfo[self.rawValue],
-           let receiptString = CTPurchaseKit.receiptString {
+        if let product = CTPurchaseKit.shared.productsInfo[self.rawValue] {
 
             let currency = product.priceLocale.currencyCode ?? "USD"
 
             var eventParams: [String: Any] = [
                 "item_id" : self.rawValue,
                 "item_name" : self.title,
-                "currency" : currency,
-                "receipt" : receiptString
+                "currency" : currency
             ]
 
             if let additions = additionParams {

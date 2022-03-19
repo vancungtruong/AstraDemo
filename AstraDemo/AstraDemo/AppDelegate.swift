@@ -8,7 +8,6 @@
 import UIKit
 
 import AstraLib
-import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,18 +46,24 @@ extension AppDelegate {
         
         CTPurchaseKit.config()
         AdjustTracking.config(appToken: AdjustToken.appToken)
-        FirebaseApp.configure()
         FacebookTracking.config(application: application, launchOptions: launchOptions)
-        
+        FirebaseTracking.config()
         setupRemoteNotification()
     }
     
     private func setupRemoteNotification() {
         
         let notificationDelegate = DefaultNotificationHanlder()
+        notificationDelegate.notificationHandler = { userInfo in
+            
+        }
         RemoteNotificationRegister.shared.configure(delegate: notificationDelegate)
-        RemoteNotificationRegister.shared.deviceTokenHanlder = { deviceToken in }
-        RemoteNotificationRegister.shared.failToRegisterHanlder = { error in }
+        RemoteNotificationRegister.shared.deviceTokenHanlder = { deviceToken in
+            // save deviceToken & call api
+        }
+        RemoteNotificationRegister.shared.failToRegisterHanlder = { error in
+            // handle error deviceToken
+        }
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {

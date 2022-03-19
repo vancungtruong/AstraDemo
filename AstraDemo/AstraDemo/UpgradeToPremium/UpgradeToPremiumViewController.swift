@@ -59,7 +59,7 @@ class UpgradeToPremiumViewController: BaseViewController {
         var price = monthly.priceStringDefault
         //var currencySymbol = "$"
         
-        if let product = storeKitManager.productsInfo[monthly.rawValue] {
+        if let product = purchaseKit.productsInfo[monthly.rawValue] {
             if let priceString = product.localizedPrice {
                 price = priceString.replacingOccurrences(of: ",", with: "")
                 
@@ -99,7 +99,7 @@ class UpgradeToPremiumViewController: BaseViewController {
         //var currencySymbol = "$"
 //        var pricePerMonth = yearly.pricePerMonString
         
-        if let product = storeKitManager.productsInfo[yearly.rawValue] {
+        if let product = purchaseKit.productsInfo[yearly.rawValue] {
             if let priceString = product.localizedPrice {
                 price = priceString.replacingOccurrences(of: ",", with: "")
                 
@@ -145,16 +145,16 @@ class UpgradeToPremiumViewController: BaseViewController {
     
     private func updateLifetimePrice() {
         
-        guard let lifetimeButton = lifetimeButton else { return }
+        guard let _ = lifetimeButton else { return }
         
         var price = CTPurchaseProduct.lifetime.priceStringDefault
-        if let product = storeKitManager.productsInfo[CTPurchaseProduct.lifetime.rawValue] {
+        if let product = purchaseKit.productsInfo[CTPurchaseProduct.lifetime.rawValue] {
             if let priceString = product.localizedPrice {
                 price = priceString
             }
         }
         
-        lifetimeButton.setTitle(price + " / lifetime", for: .normal)
+        lifetimePriceLabel.text = price + " / lifetime"
     }
     
     // MARK: -
@@ -195,13 +195,13 @@ class UpgradeToPremiumViewController: BaseViewController {
 
 extension UpgradeToPremiumViewController {
     
-    var storeKitManager: CTPurchaseKit {
+    var purchaseKit: CTPurchaseKit {
         return CTPurchaseKit.shared
     }
     
     func getIAPProductsInfo() {
         let productIDs = CTPurchaseProduct.currentPremiumIDs
-        storeKitManager.retrieveProductsInfo(productIDs: productIDs, completion: { [weak self] isSuccess in
+        purchaseKit.retrieveProductsInfo(productIDs: productIDs, completion: { [weak self] isSuccess in
             if isSuccess == true {
                 self?.updatePricePackages()
             }
@@ -211,29 +211,35 @@ extension UpgradeToPremiumViewController {
     func actionPurchase(product: CTPurchaseProduct) {
         print("product.title: \(product.title)")
         let productID = product.rawValue
-        let completion: CTPurchaseCompletion = { success in
+        let completion: CTPurchaseCompletion = { [unowned self] success in
             if success == true {
                 let vc = self.presentingViewController ?? self
                 vc.dismiss(animated: true, completion: nil)
                 self.trackBuyEvent(package: product)
-                NotificationCenter.default.post(name: .InAppPurchase, object: product)
+//                self.purchaseKit.post
+                
+                if self.purchaseKit.config.serverVerifyProductIDs.contains(productID) {
+                    self.purchaseKit.config.verifyReceiptHandler?(nil, true, { [unowned self] in
+                        self.purchaseKit.finishAllTransactions()
+                    })
+                }
             }
         }
         
-        if let product = storeKitManager.productsInfo[productID] {
-            storeKitManager.purchaseProduct(product, completion: completion)
+        if let product = purchaseKit.productsInfo[productID] {
+            purchaseKit.purchaseProduct(product, completion: completion)
         } else {
-            storeKitManager.purchaseProduct(productID, completion: completion)
+            purchaseKit.purchaseProduct(productID, completion: completion)
         }
     }
     
     @objc func actionRestore() {
         
-        storeKitManager.restorePurchases() { (isSuccess) in
+        purchaseKit.restorePurchases() { [unowned self] (isSuccess) in
             if isSuccess == true {
                 let vc = self.presentingViewController ?? self
                 vc.dismiss(animated: true, completion: nil)
-                self.storeKitManager.verifyPurchaseIfNeed()
+                self.purchaseKit.verifyPurchaseIfNeed()
                 NotificationCenter.default.post(name: .InAppPurchase, object: nil)
             }
         }

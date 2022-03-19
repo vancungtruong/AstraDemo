@@ -31,11 +31,11 @@ extension CTPurchaseProduct {
     }
     
     static var currentPremiums: [CTPurchaseProduct] {
-        return [.monthly]
+        return [.monthly, .yearly, .lifetime]
     }
     
     static var serverVerifyProducts: [CTPurchaseProduct] {
-        return []
+        return [.monthly, .yearly]
     }
     
     static var usingPromotionIAP: Bool = false
