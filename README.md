@@ -1,6 +1,6 @@
 # AstraLib Demo
 
-[![CI Status](https://img.shields.io/travis/Cung Truong/AstraLib.svg?style=flat)](https://travis-ci.org/Cung Truong/AstraLib)
+[![CI Status](https://img.shields.io/travis/vancungtruong/AstraLib.svg?style=flat)](https://travis-ci.org/vancungtruong/AstraLib)
 [![Version](https://img.shields.io/cocoapods/v/AstraLib.svg?style=flat)](https://cocoapods.org/pods/AstraLib)
 [![License](https://img.shields.io/cocoapods/l/AstraLib.svg?style=flat)](https://cocoapods.org/pods/AstraLib)
 [![Platform](https://img.shields.io/cocoapods/p/AstraLib.svg?style=flat)](https://cocoapods.org/pods/AstraLib)
@@ -27,7 +27,7 @@
 AstraLib is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following lines to your Podfile:
 
-```swift
+```ruby
 use_frameworks!
 
 pod 'AstraLib'
@@ -115,9 +115,9 @@ extension SceneDelegate {
 
 ```
 
-## Author
+### Custom
 
-Cung Truong, vancungtruong@gmail.com
+Update content in "AstraLib + Custom" folder depending on your project
 
 ## License
 
