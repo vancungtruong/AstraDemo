@@ -216,7 +216,7 @@ extension UpgradeToPremiumViewController {
                 let vc = self.presentingViewController ?? self
                 vc.dismiss(animated: true, completion: nil)
                 self.trackBuyEvent(package: product)
-//                self.purchaseKit.post
+                self.purchaseKit.postInAppPurchasedNotification(object: product)
                 
                 if self.purchaseKit.config.serverVerifyProductIDs.contains(productID) {
                     self.purchaseKit.config.verifyReceiptHandler?(nil, true, { [unowned self] in
@@ -240,7 +240,13 @@ extension UpgradeToPremiumViewController {
                 let vc = self.presentingViewController ?? self
                 vc.dismiss(animated: true, completion: nil)
                 self.purchaseKit.verifyPurchaseIfNeed()
-                NotificationCenter.default.post(name: .InAppPurchase, object: nil)
+                self.purchaseKit.postInAppPurchasedNotification(object: nil)
+                
+                if !self.purchaseKit.config.serverVerifyProductIDs.isEmpty {
+                    self.purchaseKit.config.verifyReceiptHandler?(nil, true, { [unowned self] in
+                        self.purchaseKit.finishAllTransactions()
+                    })
+                }
             }
         }
     }

@@ -35,7 +35,7 @@ extension CTPurchaseProduct {
     }
     
     static var serverVerifyProducts: [CTPurchaseProduct] {
-        return [.monthly, .yearly]
+        return []
     }
     
     static var usingPromotionIAP: Bool = false
