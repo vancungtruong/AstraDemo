@@ -55,7 +55,7 @@ class UpgradeToPremiumViewController: BaseViewController {
         
         guard let _ = monthlyButton else { return }
         
-        let monthly = CTPurchaseProduct.monthly
+        let monthly = PurchaseProduct.monthly
         var price = monthly.priceStringDefault
         //var currencySymbol = "$"
         
@@ -94,7 +94,7 @@ class UpgradeToPremiumViewController: BaseViewController {
         
         guard let _ = yearlyButton else { return }
         
-        let yearly = CTPurchaseProduct.yearly
+        let yearly = PurchaseProduct.yearly
         var price = yearly.priceStringDefault
         //var currencySymbol = "$"
 //        var pricePerMonth = yearly.pricePerMonString
@@ -147,8 +147,8 @@ class UpgradeToPremiumViewController: BaseViewController {
         
         guard let _ = lifetimeButton else { return }
         
-        var price = CTPurchaseProduct.lifetime.priceStringDefault
-        if let product = purchaseKit.productsInfo[CTPurchaseProduct.lifetime.rawValue] {
+        var price = PurchaseProduct.lifetime.priceStringDefault
+        if let product = purchaseKit.productsInfo[PurchaseProduct.lifetime.rawValue] {
             if let priceString = product.localizedPrice {
                 price = priceString
             }
@@ -195,12 +195,12 @@ class UpgradeToPremiumViewController: BaseViewController {
 
 extension UpgradeToPremiumViewController {
     
-    var purchaseKit: CTPurchaseKit {
-        return CTPurchaseKit.shared
+    var purchaseKit: PurchaseKit {
+        return PurchaseKit.shared
     }
     
     func getIAPProductsInfo() {
-        let productIDs = CTPurchaseProduct.currentPremiumIDs
+        let productIDs = PurchaseProduct.currentPremiumIDs
         purchaseKit.retrieveProductsInfo(productIDs: productIDs, completion: { [weak self] isSuccess in
             if isSuccess == true {
                 self?.updatePricePackages()
@@ -208,10 +208,10 @@ extension UpgradeToPremiumViewController {
         })
     }
     
-    func actionPurchase(product: CTPurchaseProduct) {
+    func actionPurchase(product: PurchaseProduct) {
         print("product.title: \(product.title)")
         let productID = product.rawValue
-        let completion: CTPurchaseCompletion = { [unowned self] success in
+        let completion: PurchaseCompletion = { [unowned self] success in
             if success == true {
                 let vc = self.presentingViewController ?? self
                 vc.dismiss(animated: true, completion: nil)
@@ -283,7 +283,7 @@ extension UpgradeToPremiumViewController {
 
 extension UpgradeToPremiumViewController {
     
-    func trackBuyEvent(package: CTPurchaseProduct) {
+    func trackBuyEvent(package: PurchaseProduct) {
         
         let additionParams: TrackingParameters = [:]
         
@@ -297,8 +297,8 @@ extension UpgradeToPremiumViewController {
     }
     
     /*
-    func logAttributionEvent(package: CTPurchaseProduct) {
-        if let product = CTPurchaseKit.shared.productsInfo[package.rawValue], let attributionApiID = UserDefaults.standard.object(forKey: kAttributionApiID) as? String {
+    func logAttributionEvent(package: PurchaseProduct) {
+        if let product = PurchaseKit.shared.productsInfo[package.rawValue], let attributionApiID = UserDefaults.standard.object(forKey: kAttributionApiID) as? String {
             
             var timePeriod: Double = 0.0
             if let timeOpen = UserDefaults.standard.object(forKey: kFirstTimeOpenApp) as? Date {

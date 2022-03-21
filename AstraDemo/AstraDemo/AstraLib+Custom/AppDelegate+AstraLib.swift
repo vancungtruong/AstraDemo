@@ -11,7 +11,7 @@ extension AppDelegate {
     
     func setupAstraLib(_ application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         
-        CTPurchaseKit.config()
+        PurchaseKit.config()
         AdjustTracking.config(appToken: AdjustToken.appToken)
         FacebookTracking.config(application: application, launchOptions: launchOptions)
         FirebaseTracking.config()

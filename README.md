@@ -35,7 +35,7 @@ pod 'AstraLib'
 
 ## Document
 
-### Setup 
+### Tutorials 
 
 - [Adjust](https://github.com/adjust/ios_sdk)
 - [Firebase](https://firebase.google.com/docs/analytics/get-started?platform=ios)

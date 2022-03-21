@@ -1,5 +1,5 @@
 //
-//  CTPurchaseProduct.swift
+//  PurchaseProduct.swift
 //  IAP-Subscription
 //
 //  Created by Cung Truong on 4/20/18.
@@ -8,7 +8,7 @@
 
 import AstraLib
 
-public enum CTPurchaseProduct: String, CaseIterable {
+public enum PurchaseProduct: String, CaseIterable {
     
     static let sharedSecret = "75fb9601618443ea8d3f4ebfef2da655"
     
@@ -19,7 +19,7 @@ public enum CTPurchaseProduct: String, CaseIterable {
     case lifetime = "com.cuongnguyen.demo.lifetime"
 }
 
-extension CTPurchaseProduct {
+extension PurchaseProduct {
     
     var type: CTProductType {
         switch self {
@@ -30,17 +30,17 @@ extension CTPurchaseProduct {
         }
     }
     
-    static var currentPremiums: [CTPurchaseProduct] {
+    static var currentPremiums: [PurchaseProduct] {
         return [.monthly, .yearly, .lifetime]
     }
     
-    static var serverVerifyProducts: [CTPurchaseProduct] {
+    static var serverVerifyProducts: [PurchaseProduct] {
         return []
     }
     
     static var usingPromotionIAP: Bool = false
     
-    static var verifyReceiptHandler: CTPurchaseVerifyReceiptHandler = { productID, isShowIndicator, completion in
+    static var verifyReceiptHandler: PurchaseVerifyReceiptHandler = { productID, isShowIndicator, completion in
         IAPHelper.shared.verifyReceiptIAP(completion: completion)
     }
     
@@ -74,7 +74,7 @@ extension CTPurchaseProduct {
 
 // MARK: -
 
-extension CTPurchaseProduct {
+extension PurchaseProduct {
     
     
     static var currentPremiumIDs: [String] {
@@ -92,7 +92,7 @@ extension CTPurchaseProduct {
     var localPriceString: String {
         
         var price = self.priceStringDefault
-        if let product = CTPurchaseKit.shared.getProductInfo(for: self.rawValue) {
+        if let product = PurchaseKit.shared.getProductInfo(for: self.rawValue) {
             if let priceString = product.localizedPrice {
                 price = priceString.replacingOccurrences(of: ",", with: "")
             }

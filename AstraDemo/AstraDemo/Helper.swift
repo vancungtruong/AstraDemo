@@ -11,9 +11,9 @@ class Helper {
     
     static var isPurchasedPremium: Bool {
         #if DEBUG
-        return CTPurchaseProduct.isPurchasedPremium
+        return PurchaseProduct.isPurchasedPremium
         #else
-        return CTPurchaseProduct.isPurchasedPremium
+        return PurchaseProduct.isPurchasedPremium
         #endif
     }
 }

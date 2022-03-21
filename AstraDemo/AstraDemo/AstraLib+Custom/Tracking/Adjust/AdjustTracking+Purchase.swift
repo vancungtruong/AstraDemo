@@ -1,5 +1,5 @@
 //
-//  CTPurchaseProduct+Adjust.swift
+//  PurchaseProduct+Adjust.swift
 //  Kikki
 //
 //  Created by cuong on 12/5/19.
@@ -8,7 +8,7 @@
 
 import AstraLib
 
-extension CTPurchaseProduct {
+extension PurchaseProduct {
     
     var adjustToken: String {
         switch self {
@@ -25,13 +25,13 @@ extension CTPurchaseProduct {
         
         let params = AdjustEventParameters()
         
-        if let product = CTPurchaseKit.shared.productsInfo[self.rawValue] {
+        if let product = PurchaseKit.shared.productsInfo[self.rawValue] {
             let price = product.price.doubleValue
             let currency = product.priceLocale.currencyCode ?? "USD"
             params.revenue = AdjustRevenueParameter(amount: price, currency: currency)
         }
         
-        if let purchase = CTPurchaseKit.shared.findVerifyPurchase(for: self.rawValue),
+        if let purchase = PurchaseKit.shared.findVerifyPurchase(for: self.rawValue),
            let transactionID = purchase.transaction.transactionIdentifier {
             
             params.transactionID = transactionID
@@ -44,9 +44,9 @@ extension CTPurchaseProduct {
     
     func trackAdjustSubscription() {
         
-        guard let product = CTPurchaseKit.shared.productsInfo[self.rawValue],
-              let receipt = CTPurchaseKit.receiptData,
-              let purchase = CTPurchaseKit.shared.findVerifyPurchase(for: product.productIdentifier),
+        guard let product = PurchaseKit.shared.productsInfo[self.rawValue],
+              let receipt = PurchaseKit.receiptData,
+              let purchase = PurchaseKit.shared.findVerifyPurchase(for: product.productIdentifier),
               let transactionId = purchase.transaction.transactionIdentifier
         else {
             return

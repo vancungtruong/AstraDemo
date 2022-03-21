@@ -17,9 +17,9 @@ class IAPHelper {
     
     func verifyReceiptIAP(showIndicator: Bool = true, completion: () -> Void) {
         
-        guard CTPurchaseProduct.isPurchasedPremium else { return }
+        guard PurchaseProduct.isPurchasedPremium else { return }
         guard IAPHelper.isUserLoggedIn() else { completion(); return }
-//        guard let receiptString = CTPurchaseKit.receiptString else { return }
+//        guard let receiptString = PurchaseKit.receiptString else { return }
         
 //        let request = ProfileRequestInfo.subscription(receipt: receiptString, password: "AA", debugMode: debugMode)
 //        APIManager.request(info: request, showProgress: showIndicator) { [unowned self] _ in

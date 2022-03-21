@@ -1,5 +1,5 @@
 //
-//  CTPurchaseProduct.swift
+//  PurchaseProduct.swift
 //  IAP-Subscription
 //
 //  Created by Cung Truong on 4/20/18.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-extension CTPurchaseProduct {
+extension PurchaseProduct {
     
-    static var purchases: [CTPurchaseProduct] {
+    static var purchases: [PurchaseProduct] {
         return allCases.filter({ $0.type == .purchase })
     }
     
-    static var subscriptions: [CTPurchaseProduct] {
+    static var subscriptions: [PurchaseProduct] {
         return allCases.filter({ $0.type == .subscription })
     }
     
-    static var consumables: [CTPurchaseProduct] {
+    static var consumables: [PurchaseProduct] {
         return allCases.filter({ $0.type == .consumable })
     }
     
@@ -38,7 +38,7 @@ extension CTPurchaseProduct {
 }
 
 
-extension CTPurchaseProduct {
+extension PurchaseProduct {
     
     static var isPurchasedPremium: Bool {
         

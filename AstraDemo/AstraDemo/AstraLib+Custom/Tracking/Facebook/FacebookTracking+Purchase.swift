@@ -1,5 +1,5 @@
 //
-//  CTPurchaseProduct+Facebook.swift
+//  PurchaseProduct+Facebook.swift
 //  InAppPurchaseKit
 //
 //  Created by cuong on 3/17/22.
@@ -7,12 +7,12 @@
 
 import AstraLib
 
-extension CTPurchaseProduct {
+extension PurchaseProduct {
     
     func trackFacebook(additionParams: [String: Any]?) {
 
-        if let product = CTPurchaseKit.shared.productsInfo[self.rawValue],
-           let receiptString = CTPurchaseKit.receiptString {
+        if let product = PurchaseKit.shared.productsInfo[self.rawValue],
+           let receiptString = PurchaseKit.receiptString {
 
             let currency = product.priceLocale.currencyCode ?? "USD"
             let price = product.price.doubleValue

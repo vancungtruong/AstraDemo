@@ -9,11 +9,11 @@
 import AstraLib
 
 
-extension CTPurchaseProduct {
+extension PurchaseProduct {
     
     func trackFirebase(additionParams: [String: Any]?) {
 
-        if let product = CTPurchaseKit.shared.productsInfo[self.rawValue] {
+        if let product = PurchaseKit.shared.productsInfo[self.rawValue] {
 
             let currency = product.priceLocale.currencyCode ?? "USD"
 
