@@ -29,7 +29,7 @@ extension PurchaseProduct {
                 }
             }
             
-            FirebaseTracking.trackEvent(TrackingEvent.inAppPurchase.rawValue, parameters: eventParams)
+            FirebaseTracking.trackEvent(.inAppPurchase, parameters: eventParams)
         }
     }
 }

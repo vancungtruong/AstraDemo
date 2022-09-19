@@ -14,8 +14,13 @@ extension FirebaseTracking {
         let params: TrackingParameters = [
             "key" : "value"
         ]
-        
-        FirebaseTracking.trackEvent(TrackingEvent.custom.rawValue, parameters: params)
+
+        FirebaseTracking.trackEvent(.custom, parameters: params)
     }
 
+    static func trackEnumEvent() {
+
+        FirebaseTracking.trackEvent(.onboardingView(.Onboarding_1))
+    }
+    
 }

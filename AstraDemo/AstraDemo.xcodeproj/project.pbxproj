@@ -20,7 +20,7 @@
 		5E88492227E4745500CCE227 /* FirebaseTracking+Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88491327E4745500CCE227 /* FirebaseTracking+Purchase.swift */; };
 		5E88492327E4745500CCE227 /* FacebookTracking+Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88491527E4745500CCE227 /* FacebookTracking+Purchase.swift */; };
 		5E88492427E4745500CCE227 /* FacebookTracking+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88491627E4745500CCE227 /* FacebookTracking+Custom.swift */; };
-		5E88492527E4745500CCE227 /* TrackingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88491727E4745500CCE227 /* TrackingEvent.swift */; };
+		5E88492527E4745500CCE227 /* TrackingEvent+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88491727E4745500CCE227 /* TrackingEvent+Name.swift */; };
 		5E88492627E4745500CCE227 /* AppDelegate+RemoteNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88491927E4745500CCE227 /* AppDelegate+RemoteNotification.swift */; };
 		5E88494A27E47AA500CCE227 /* UpgradeToPremium.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E88494827E47AA500CCE227 /* UpgradeToPremium.storyboard */; };
 		5E88494B27E47AA500CCE227 /* UpgradeToPremiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E88494927E47AA500CCE227 /* UpgradeToPremiumViewController.swift */; };
@@ -35,6 +35,7 @@
 		5EF2BB8827E4C37700990CD9 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2BB8727E4C37700990CD9 /* Helper.swift */; };
 		5EF2BB8B27E5848B00990CD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF2BB8A27E5848B00990CD9 /* GoogleService-Info.plist */; };
 		A66942E936C888D95F6D3358 /* Pods_AstraDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D065B97996D67F2A80AC43 /* Pods_AstraDemo.framework */; };
+		B747C5C628D86BA60086C320 /* TrackingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747C5C528D86BA60086C320 /* TrackingEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +54,7 @@
 		5E88491327E4745500CCE227 /* FirebaseTracking+Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FirebaseTracking+Purchase.swift"; sourceTree = "<group>"; };
 		5E88491527E4745500CCE227 /* FacebookTracking+Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FacebookTracking+Purchase.swift"; sourceTree = "<group>"; };
 		5E88491627E4745500CCE227 /* FacebookTracking+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FacebookTracking+Custom.swift"; sourceTree = "<group>"; };
-		5E88491727E4745500CCE227 /* TrackingEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingEvent.swift; sourceTree = "<group>"; };
+		5E88491727E4745500CCE227 /* TrackingEvent+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackingEvent+Name.swift"; sourceTree = "<group>"; };
 		5E88491927E4745500CCE227 /* AppDelegate+RemoteNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+RemoteNotification.swift"; sourceTree = "<group>"; };
 		5E88494827E47AA500CCE227 /* UpgradeToPremium.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UpgradeToPremium.storyboard; sourceTree = "<group>"; };
 		5E88494927E47AA500CCE227 /* UpgradeToPremiumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeToPremiumViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 		5EF2BB8727E4C37700990CD9 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5EF2BB8A27E5848B00990CD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0D065B97996D67F2A80AC43 /* Pods_AstraDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstraDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B747C5C528D86BA60086C320 /* TrackingEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +142,7 @@
 				5E88490E27E4745500CCE227 /* Adjust */,
 				5E88491127E4745500CCE227 /* Firebase */,
 				5E88491427E4745500CCE227 /* Facebook */,
-				5E88491727E4745500CCE227 /* TrackingEvent.swift */,
+				5E88491727E4745500CCE227 /* TrackingEvent+Name.swift */,
 			);
 			path = Tracking;
 			sourceTree = "<group>";
@@ -161,6 +163,7 @@
 				5E88491227E4745500CCE227 /* FirebaseTracking+Custom.swift */,
 				5E88491327E4745500CCE227 /* FirebaseTracking+Purchase.swift */,
 				5EF2BB8427E4C02100990CD9 /* FirebaseTracking+Base.swift */,
+				B747C5C528D86BA60086C320 /* TrackingEvent.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -365,7 +368,7 @@
 				5E88492027E4745500CCE227 /* AdjustTracking+Purchase.swift in Sources */,
 				5E88491F27E4745500CCE227 /* AdjustTracking+Custom.swift in Sources */,
 				5E88494B27E47AA500CCE227 /* UpgradeToPremiumViewController.swift in Sources */,
-				5E88492527E4745500CCE227 /* TrackingEvent.swift in Sources */,
+				5E88492527E4745500CCE227 /* TrackingEvent+Name.swift in Sources */,
 				5E88494F27E47BAC00CCE227 /* BaseViewController.swift in Sources */,
 				5EB800E427E447CB0092A6A3 /* ViewController.swift in Sources */,
 				5EF2BB8827E4C37700990CD9 /* Helper.swift in Sources */,
@@ -382,6 +385,7 @@
 				5EB800E227E447CB0092A6A3 /* SceneDelegate.swift in Sources */,
 				5E88491D27E4745500CCE227 /* PurchaseProduct+Base.swift in Sources */,
 				5E88492327E4745500CCE227 /* FacebookTracking+Purchase.swift in Sources */,
+				B747C5C628D86BA60086C320 /* TrackingEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

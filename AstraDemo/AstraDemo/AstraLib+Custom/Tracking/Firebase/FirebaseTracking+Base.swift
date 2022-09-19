@@ -17,9 +17,18 @@ extension FirebaseTracking {
         FirebaseApp.configure()
     }
     
-    static func trackEvent(_ name: String, parameters: TrackingParameters) {
+    static func trackEvent(_ name: TrackingEvent.Name, parameters: TrackingParameters) {
 
-        Analytics.logEvent(name, parameters: parameters)
+        Analytics.logEvent(name.rawValue, parameters: parameters)
+    }
+    
+    static func trackEvent(_ event: TrackingEvent) {
+        
+        Analytics.logEvent(event.name.rawValue, parameters: event.params)
+        
+        #if DEBUG
+        print("firebase track event: \(event.name) -> ", event.params)
+        #endif
     }
     
 }

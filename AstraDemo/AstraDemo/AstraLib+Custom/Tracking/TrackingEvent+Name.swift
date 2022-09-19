@@ -7,10 +7,7 @@
 
 import Foundation
 
-enum TrackingEvent: String {
-    
-    case inAppPurchase = "InAppPurchase"
+extension TrackingEvent {
     
     
-    case custom = "Custom"
 }

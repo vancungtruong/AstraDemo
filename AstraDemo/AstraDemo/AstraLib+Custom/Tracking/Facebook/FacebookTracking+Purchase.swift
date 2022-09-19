@@ -31,7 +31,7 @@ extension PurchaseProduct {
                 }
             }
             
-            FacebookTracking.trackEvent(name: TrackingEvent.inAppPurchase.rawValue, valueToSum: price, parameters: eventParams)
+            FacebookTracking.trackEvent(name: TrackingEvent.Name.inAppPurchase.rawValue, valueToSum: price, parameters: eventParams)
         }
     }
 }
